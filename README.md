@@ -21,3 +21,10 @@ target_brand_kor = "메르세데스벤츠코리아"
 <img width="1147" alt="car_view_2" src="https://user-images.githubusercontent.com/80459520/125198385-99eaa780-e29c-11eb-9ba3-2f52ee473ea9.png">
 
 <img width="1145" alt="car_view_3" src="https://user-images.githubusercontent.com/80459520/125198393-a4a53c80-e29c-11eb-80e3-aefb6016e73c.png">
+
+
+<br/>
+
+자세한 EDA 과정 : [RESULT_REPORT.ipynb](https://github.com/aeea-0605/car-eda-repo/blob/main/RESULT_REPORT.ipynb)
+
+전처리 함수 및 시각화 함수, 데이터셋 관리 모듈 : [EDA_module.py](https://github.com/aeea-0605/car-eda-repo/blob/main/EDA_module.py)
