@@ -217,7 +217,7 @@ def sales_age(target_brand,date):
 # 주요 연령대의 선호 (연료타입 / 사이즈 / 타입(해치백, 쿠페)
 def segment_preference(target_brand, year, age,sex):
 
-    plt.figure(figsize=(18,8))
+    plt.figure(figsize=(12,5))
     seg = kaida_dem[(kaida_dem['brand']==target_brand)&(kaida_dem['year']==year)&(kaida_dem['age']==age)
                     &(kaida_dem['sales_type']== sex)].groupby(['car_type']).agg(sum).sort_values('value',ascending=False).reset_index()
     seg['percent'] = seg['value'] / seg['value'].agg(sum)*100
