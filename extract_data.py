@@ -27,3 +27,4 @@ datasets = {"kaida": kaida_df, "demension": demension, "naver_query": query_df, 
 
 for title, dataset in datasets.items():
     dataset.to_csv(f'datas/{}.csv', encoding='utf-8', header=True)
+
