@@ -17,7 +17,7 @@
 - Input data로 특정 브랜드를 입력하면 해당 브랜드에 대한 Visualization Report 작성
 
 ### 1-4. 데이터셋 및 설명
-- 데이터셋
+- 데이터셋 : 프로젝트 진행 기준 2021년 5월까지의 데이터만 존재
     - 수입중고차 판매 데이터 : [한국 수입자동차 협회](https://www.kaida.co.kr/)
     - 네이버 트랜드 : [네이버 검색어 트랜드](https://datalab.naver.com/keyword/trendSearch.naver)
     - TV광고 시청률 데이터 : 특정 기업 제공 데이터
@@ -46,6 +46,13 @@
 <br/>
 
 ### **Visualization**
+****
+<img width="330" alt="스크린샷 2021-07-28 오후 10 07 19" src="https://user-images.githubusercontent.com/80459520/127327421-bd0df3bf-ea72-4e5f-9686-6c0e92e3ed6a.png">
+
+벤츠는 4월 기준 두번째로 시장점유율이 높은 해외 브랜드임을 알 수 있다.
+
+<br/>
+
 **<Page 1>**
 <img width="1144" alt="car_view_1" src="https://user-images.githubusercontent.com/80459520/125198348-83445080-e29c-11eb-9653-3ad1922b8ac0.png">
 
@@ -104,5 +111,65 @@ target_brand_kor = "메르세데스벤츠코리아"
 
 <br/>
 
-### 3-3 Visualization
+### 3-3 Visualization Code Summary
+```
+# target brand에 대한 시각화 코드
+# 4월 등록(판매)대수
+sales_month(target_brand_eng, "2021-04")
 
+# 상위 5개 브랜드의 시장 점유율 pie chart
+pie_major(2021,4,)
+
+# 4월 상위 3개 모델 bar chart
+month_top3(2021, 4, target_brand_eng)
+
+# 4월 소비자 성비 pie chart
+sales_type(target_brand_eng,'2021-04')
+
+# 4월 성별 연령대별 소비자 비율 bar chart
+sales_age(target_brand_eng,'2021-04')
+
+# 2021년 주요 고객 연령층(남-40, 여-30)의 차종 선호도 비율 bar chart
+segment_preference(target_brand_eng,2021,40,'개인-여자')
+segment_preference(target_brand_eng,2021,30,'개인-남자')
+
+# 주요 고객층의 선호 segment 비율 bar chart
+customer_preference(target_brand_eng,'개인-남자','segment',categorical)
+customer_preference(target_brand_eng,'개인-여자','segment',categorical)
+
+# 최근 12개월에 대한 Z-chart
+make_z_chart(target_brand_eng, "2021-05")
+
+# 4월 기준 전월대비, 전년대비 네이터 검색어 트랜드 bar chart
+query_compare(2021, 4, target_brand_eng)
+
+# Audience, GRP 추이 그래프
+yearly_plot(target_brand_kor)
+
+# 나이/성별에 따른 시청자 성비 bar chart
+aud_ratio(target_brand_kor)
+
+# 연령대 기준 Audience ABC chart
+aud_ABC(target_brand_kor)
+```
+
+<br/>
+
+---
+---
+
+<br/>
+
+# 💡 제언
+- 분석 대상에 대한 명확한 분석 목표를 갖고 목표지향적으로 집요하게 데이터를 바라보고 분석하는 습관이 중요하다는 것을 알았습니다.
+- 분석결과에 대해 사용자 관점에서 어떠한 성과를 낼 수 있는지 끊임 없는 고민이 필요하다는 것을 알 수 있었고, 결과에 대한 오류가 존재하여 잘못된 해석을 하진 않았는지에 대한 계속된 고찰이 중요한 부분이라는 것을 느꼈습니다.
+
+<br/>
+
+# Code Explanation
+
+> 특정 타겟에 대한 Visualization Note : [RESULT_REPORT.ipynb](https://github.com/aeea-0605/car-eda-repo/blob/main/RESULT_REPORT.ipynb)
+
+> 시각화를 위한 변수 및 함수가 있는 모듈파일 : [EDA_module.py](https://github.com/aeea-0605/car-eda-repo/blob/main/EDA_module.py)
+
+> SqlAlchemy와 pandas를 이용한 분석을 위한 데이터 추출 : [extract_data.py](https://github.com/aeea-0605/car-eda-repo/blob/main/extract_data.py)
